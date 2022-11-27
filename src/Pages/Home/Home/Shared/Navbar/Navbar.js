@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../../../assests/navLogo.png";
+import { AuthContext } from "../../../../../contexts/AuthProvider";
 
 const Navbar = () => {
+  const {user, logOut}= useContext(AuthContext);
+
+  const handleLogOut =() =>{
+    logOut()
+    .then(() => {})
+    .catch(err => console.log(err));
+  }
+
   const menuItems = (
     <>
         <li>
@@ -11,28 +20,13 @@ const Navbar = () => {
       <li>
         <Link to='/'>Blogs</Link>
       </li>
-      <li tabIndex={0} >
-      <Link to=''>
-          Dashboard
-          <svg
-            className="fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-          >
-            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-          </svg>
-        </Link>
-        <ul className="p-2 bg-base-100 rounded">
-          <li>
-          <Link to='/'>Submenu 1</Link>
-          </li>
-          <li>
-          <Link to='/'>Submenu 2</Link>
-          </li>
-        </ul>
+      { user?.uid ?
+      <li>
+        <Link to='/dashboard'>Dashboard</Link>
       </li>
+      :
+        <></>
+      }
     </>
   );
 
@@ -71,7 +65,11 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0 ">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login' className="btn">Login</Link>
+        { user?.uid ?
+        <button onClick={handleLogOut} className="btn bg-red-400 btn-xs btn-md btn glass text-white">Logout</button> 
+        :
+        <Link to='/login' className="btn bg-yellow-400 btn-xs btn-md btn glass text-secondary">Login</Link>
+        }
       </div>
     </div>
   );
