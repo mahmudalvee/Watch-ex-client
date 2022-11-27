@@ -28,9 +28,9 @@ const Login = () => {
     }
 
     return (
-        <div className='h-[800px] flex justify-center items-center'>
+        <div className=' flex justify-center items-center'>
             <div className='w-96 p-7'>
-                <h2 className='text-xl text-center'>Login</h2>
+                <h2 className='text-5xl text-center font-bold text-secondary underline underline-offset-4'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Email</span></label>
@@ -52,13 +52,13 @@ const Login = () => {
                         <label className="label"> <span className="label-text">Forget Password?</span></label>
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                     </div>
-                    <input className='btn btn-accent w-full' value="Login" type="submit" />
+                    <input className='btn bg-primary btn-xs btn-md glass text-black w-full' value="Login" type="submit" />
                     <div>
                         {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
-                <p>Don't have an Account? <Link className='text-secondary' to="/signup">Create A Account!</Link></p>
-                <div className="divider">OR</div>
+                <p>Don't have an Account? <Link className='text-primary font-bold underline underline-offset-2' to="/signup">    Create A Account !</Link></p>
+                <div className="divider">Or</div>
                 <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
