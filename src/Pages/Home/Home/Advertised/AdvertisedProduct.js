@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AdvertisedProduct = ({advertisedProduct}) => {
+const AdvertisedProduct = ({advertisedProduct, setProduct}) => {
     const {picture, name, seller_location, resale_price, original_price, years_of_use, time_posted, seller_name, seller_verification}= advertisedProduct;
     return (
-        <div className="card mx-auto w-96 bg-base-100 shadow-xl">
+        <div className="card flex mx-auto w-96 bg-base-100 shadow-xl">
             <figure className="px-5 pt-5">
                 <img src={picture} alt="Product" className="rounded-lg" />
             </figure>
@@ -17,9 +17,12 @@ const AdvertisedProduct = ({advertisedProduct}) => {
                 <p>Years of Use: {years_of_use}</p>
                 <p>Posted: {time_posted}</p>
                 <p>Seller: {seller_name}</p>
-                <p>Seller: {seller_name}</p>
                 <div className="card-actions">
-                <button className="btn bg-yellow-400 btn-xs btn-md btn glass text-black">Book Now</button>
+                    <label 
+                        htmlFor="booking-modal" 
+                        className="btn bg-yellow-400 btn-xs btn-md btn glass text-black"
+                        onClick={()=>setProduct(advertisedProduct)}
+                    >Book Now</label>
                 </div>
             </div>
         </div>

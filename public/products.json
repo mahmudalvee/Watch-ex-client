@@ -14,7 +14,8 @@
       "seller_name": "Mr Alu Mia",
       "seller_phone": "88012738478",
       "seller_location": "Dhaka",
-      "seller_verification": "false"
+      "seller_verification": "false",
+      "description": "I bought this watch in 2017 from online. Upto now 2 times servicing were required. You need to change the battery before using. Maximum functions are OK."
     },
     {
       "_id": 12,
@@ -31,7 +32,8 @@
         "seller_name": "Mr Belu Saheb",
         "seller_phone": "88012450472",
         "seller_location": "Chattogram",
-        "seller_verification": "false"
+        "seller_verification": "false",
+        "description": "I got this watch as a gift in 2021. Upto now no servicing was required. The design is attractive and the functions are still same as since I started to use"
       },
       {
         "_id": 13,
@@ -48,7 +50,8 @@
         "seller_name": "Tim Kook Vai",
         "seller_phone": "02363872921",
         "seller_location": "Changkharpool",
-        "seller_verification": "true"
+        "seller_verification": "true",
+        "description": "I got this watch as a gift in 2019. Upto now a servicing was required. Most of the functions are still same as since I started to use"
       },
       {
         "_id": 14,
@@ -65,7 +68,8 @@
         "seller_name": "Ren Zhengfei",
         "seller_phone": "0233457908",
         "seller_location": "Gulistan",
-        "seller_verification": "false"
+        "seller_verification": "false",
+        "description": "The watch was imported from China. I am using it rarely from 2020. The watch is OK and all the functions do work perfectly."
       },
       {
         "_id": 15,
@@ -82,7 +86,8 @@
         "seller_name": "Kulsum Begum",
         "seller_phone": "02546778396",
         "seller_location": "Old Dhaka",
-        "seller_verification": "true"
+        "seller_verification": "true",
+        "description": "I bought this watch in 2021. Upto now any kind of servicing was not required, rather than only battery changing. The watch is attractive and the functions are still same as since I started to use"
       },
       {
         "_id": 16,
@@ -99,6 +104,7 @@
         "seller_name": "Sokhina Begum",
         "seller_phone": "02543546711",
         "seller_location": "Barisal",
-        "seller_verification": "false"
+        "seller_verification": "false",
+        "description": "Bought this watch in earlier 2020. 2 times servicing were required. The watch is still attractive and the functions are working"
       }
   ]
