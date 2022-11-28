@@ -23,7 +23,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/');
+                        saveUser(data.name, data.email, data.role);
                      })
                     .catch(err => console.log(err));
             })
@@ -31,6 +31,22 @@ const SignUp = () => {
                 console.log(error)
                 setSignUPError(error.message)
             });
+    }
+
+    const saveUser= (name, email, role) =>{
+        const user ={name, email, role};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+            navigate('/');
+        })
     }
 
     return (
@@ -60,7 +76,14 @@ const SignUp = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
-                    <input className='btn bg-primary btn-xs btn-md glass text-black w-full mt-4' value="Sign Up" type="submit" />
+                    <div className="form-control w-full max-w-xs my-6">
+                    <p>Select your role-</p>
+                    <select {...register("role")} className="input input-bordered w-full max-w-xs" >
+                        <option value="buyer">Buyer</option>
+                        <option value="seller">Seller</option>
+                    </select>
+                    </div>
+                    <input className='btn bg-primary btn-xs btn-md glass text-black w-full my-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
                 <p>Already have an account? <Link className='text-primary font-bold underline underline-offset-2' to="/login">   Login Here !</Link></p>
