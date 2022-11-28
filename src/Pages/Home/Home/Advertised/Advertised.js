@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import BookingModal from '../../../BookingModal/BookingModal';
 import AdvertisedProduct from './AdvertisedProduct';
+import { useQuery } from '@tanstack/react-query';
 
 const Advertised = () => {
-    const [advertisedProducts, setAdvertisedProducts]= useState([]);
+    // const [advertisedProducts, setAdvertisedProducts]= useState([]);
     const [product, setProduct]= useState(null);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/advertisedProducts')
-            .then(res => res.json())
-            .then(data => setAdvertisedProducts(data))
-    }, [])
+    const {data:advertisedProducts= []} = useQuery({
+        queryKey: ['advertisedProducts'],
+        queryFn: () => fetch('http://localhost:5000/advertisedProducts')
+        .then(res => res.json())
+    })
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/advertisedProducts')
+    //         .then(res => res.json())
+    //         .then(data => setAdvertisedProducts(data))
+    // }, [])
+
     return (
         <section className='my-8'>
             <h1 className="text-primary text-4xl font-bold text-center">Advertised Products</h1>

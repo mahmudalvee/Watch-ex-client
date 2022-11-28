@@ -8,7 +8,6 @@ const ProductCategory = () => {
     const [product, setProduct]= useState(null);
 
     const [categoryProducts]= useLoaderData();
-    console.log(categoryProducts);
 
     useEffect(() => {
         fetch(`http://localhost:5000/category/${categoryProducts.category_id}`)
