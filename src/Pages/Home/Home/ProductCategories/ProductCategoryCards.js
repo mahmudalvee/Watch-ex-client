@@ -33,6 +33,7 @@ const ProductCategoryCards = () => {
                 cardData.map(card => <ProductCategoryCard
                     key={card.id}
                     card={card}
+                    id={card.id}
                 ></ProductCategoryCard>)
             }
         </div>
