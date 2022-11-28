@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import BookingModal from '../../../BookingModal/BookingModal';
 import AdvertisedProduct from './AdvertisedProduct';
 import { useQuery } from '@tanstack/react-query';
+import Loading from '../Shared/Loading/Loading';
 
 const Advertised = () => {
     // const [advertisedProducts, setAdvertisedProducts]= useState([]);
     const [product, setProduct]= useState(null);
 
-    const {data:advertisedProducts= []} = useQuery({
+    const {data:advertisedProducts= [], isLoading} = useQuery({
         queryKey: ['advertisedProducts'],
         queryFn: () => fetch('http://localhost:5000/advertisedProducts')
         .then(res => res.json())
@@ -17,6 +18,9 @@ const Advertised = () => {
     //         .then(res => res.json())
     //         .then(data => setAdvertisedProducts(data))
     // }, [])
+    if(isLoading){
+        return <Loading></Loading>
+    }
 
     return (
         <section className='my-8'>
