@@ -11,12 +11,12 @@ const Advertised = () => {
   const { data: advertisedProducts = [], isLoading } = useQuery({
     queryKey: ["advertisedProducts"],
     queryFn: () =>
-      fetch("http://localhost:5000/advertisedProducts").then((res) =>
+      fetch("https://watch-ex-server.vercel.app/advertisedProducts").then((res) =>
         res.json()
       ),
   });
   // useEffect(() => {
-  //     fetch('http://localhost:5000/advertisedProducts')
+  //     fetch('https://watch-ex-server.vercel.app/advertisedProducts')
   //         .then(res => res.json())
   //         .then(data => setAdvertisedProducts(data))
   // }, [])

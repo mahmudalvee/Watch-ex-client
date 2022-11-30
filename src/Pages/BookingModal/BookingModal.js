@@ -25,7 +25,7 @@ const BookingModal = ({product, setProduct}) => {
         }
 
         //send data to the server
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://watch-ex-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

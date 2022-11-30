@@ -32,7 +32,7 @@ const router= createBrowserRouter([
             {
                 path: '/productCategory/:id',
                 element: <PrivateRoute><ProductCategory></ProductCategory></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) => fetch(`https://watch-ex-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/login',

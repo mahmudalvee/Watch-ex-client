@@ -8,7 +8,7 @@ const AllBuyers = () => {
     const {data: users = [], isLoading, refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() =>{
-            const res = await fetch('http://localhost:5000/allbuyers');
+            const res = await fetch('https://watch-ex-server.vercel.app/allbuyers');
             const data = await res.json();
             return data;
         }
@@ -19,7 +19,7 @@ const AllBuyers = () => {
         "Are you sure, you want to cancel this Review"
       );
       if (proceed) {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://watch-ex-server.vercel.app/users/${id}`, {
           method: "DELETE",
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`

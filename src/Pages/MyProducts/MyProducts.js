@@ -11,7 +11,7 @@ const MyProducts = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/myproducts?email=${user?.email}`
+      `https://watch-ex-server.vercel.app/myproducts?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -19,7 +19,7 @@ const MyProducts = () => {
 
 
   const handleAd= (id) =>{
-    fetch(`http://localhost:5000/advertisedProducts/${id}`, {
+    fetch(`https://watch-ex-server.vercel.app/advertisedProducts/${id}`, {
         method: 'PUT', 
         headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -39,7 +39,7 @@ const MyProducts = () => {
       "Are you sure, you want to cancel the Product?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/myproducts/${id}`, {
+      fetch(`https://watch-ex-server.vercel.app/myproducts/${id}`, {
         method: "DELETE",
         headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -10,7 +10,7 @@ const ProductCategory = () => {
     const [categoryProducts]= useLoaderData();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${categoryProducts.category_id}`)
+        fetch(`https://watch-ex-server.vercel.app/category/${categoryProducts.category_id}`)
           .then((res) => res.json())
           .then((data) => setAdvertisedProducts(data));
       }, [categoryProducts.category_id]);

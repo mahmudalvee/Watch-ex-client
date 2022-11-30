@@ -6,7 +6,7 @@ import { BsFillCartCheckFill } from 'react-icons/bs';
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://watch-ex-server.vercel.app/bookings?email=${user?.email}`;
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],
