@@ -17,6 +17,23 @@ const MyProducts = () => {
       .then((data) => setProducts(data));
   }, [user?.email]);
 
+
+  const handleAd= (id) =>{
+    fetch(`http://localhost:5000/advertisedProducts/${id}`, {
+        method: 'PUT', 
+        headers: {
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.modifiedCount > 0){
+            toast.success('Product Advertisement Done!')
+            window.location.reload();
+        }
+    })
+  }
+
   const handleDelete = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to cancel the Product?"
@@ -84,7 +101,7 @@ const MyProducts = () => {
                 <td>{product.resale_price}</td>
                 <td><p>Available</p></td>
                 <td><button onClick={() => handleDelete(product._id)} className=" btn btn-sm btn-outline bg-red-500 text-white">Delete<MdDeleteForever className="text-2xl"></MdDeleteForever></button></td>
-                <td><button className=" btn btn-sm btn-outline bg-yellow-400 text-black">Advertise<FcAdvertising className="text-2xl"></FcAdvertising></button></td>
+                <td>{product?.ad_status !== 'true' && <button onClick={() => handleAd(product._id)} className=" btn btn-sm btn-outline bg-yellow-400 text-black">Advertise<FcAdvertising className="text-2xl"></FcAdvertising></button>}</td>
               </tr>
             ))}
           </tbody>
