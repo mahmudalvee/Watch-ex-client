@@ -37,7 +37,7 @@ const AllSellers = () => {
             <th>{i+1}</th>
             <td>{user.name}</td>
             <td>{user.email}</td>
-            <td><button className='btn btn-sm bg-red-600 text-white'>Delete  <FaUserAltSlash></FaUserAltSlash></button></td>
+            <td><button className='btn btn-xs bg-red-600 text-white'>Delete  <FaUserAltSlash> </FaUserAltSlash></button></td>
           </tr>)
       }
       
