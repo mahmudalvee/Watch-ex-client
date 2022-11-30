@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import Loading from '../../../Home/Home/Shared/Loading/Loading';
 import { FaUserAltSlash } from "react-icons/fa";
 
 const AllSellers = () => {
-    const {data: users = [], isLoading} = useQuery({
+    const {data: users = [], isLoading, refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() =>{
             const res = await fetch('http://localhost:5000/allsellers');
@@ -13,10 +13,35 @@ const AllSellers = () => {
             return data;
         }
     })
-        if(isLoading){
-        return <Loading></Loading>
-    }
+        
+    const handleDelete = (id) => {
+      const proceed = window.confirm(
+        "Are you sure, you want to cancel this Review"
+      );
+      if (proceed) {
+        fetch(`http://localhost:5000/users/${id}`, {
+          method: "DELETE",
+          headers: {
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+          }
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            
+            if (data.deletedCount > 0) {
+              console.log(data);
+            refetch();
+              toast.success("Deleted successfully!");
+              <Toaster />;
+            }
+          });
+      }
+    };
 
+    if(isLoading){
+      return <Loading></Loading>
+  }
+  
 
     return (
         <div className='text-center'>
@@ -37,7 +62,7 @@ const AllSellers = () => {
             <th>{i+1}</th>
             <td>{user.name}</td>
             <td>{user.email}</td>
-            <td><button className='btn btn-xs bg-red-600 text-white'>Delete  <FaUserAltSlash> </FaUserAltSlash></button></td>
+            <td><button onClick={()=>handleDelete(user._id)} className='btn btn-xs bg-red-600 text-white'>Delete  <FaUserAltSlash> </FaUserAltSlash></button></td>
           </tr>)
       }
       

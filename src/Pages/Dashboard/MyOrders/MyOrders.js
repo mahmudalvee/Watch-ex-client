@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import { data } from "autoprefixer";
 import { BsFillCartCheckFill } from 'react-icons/bs';
 
 const MyOrders = () => {
