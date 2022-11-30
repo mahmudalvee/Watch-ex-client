@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import Footer from "../Pages/Home/Home/Shared/Footer/Footer";
 import Navbar from "../Pages/Home/Home/Shared/Navbar/Navbar";
 
@@ -15,12 +15,11 @@ const DashboardLayout = () => {
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-            <li>
-              <a>Sidebar Item 1</a>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
+            <li> <Link to='/dashboard'>Dashboard</Link></li>
+            <li> <Link to='/dashboard/myorders'>My Orders</Link></li>
+            <li> <Link to='/dashboard/allsellers'>All Sellers</Link></li>
+            <li> <Link to='/dashboard/allbuyers'>ALl Buyers</Link></li>
+            
           </ul>
         </div>
       </div>

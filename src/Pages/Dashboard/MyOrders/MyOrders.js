@@ -12,7 +12,11 @@ const MyOrders = () => {
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
-      const res = await fetch(url);
+      const res = await fetch(url, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+      });
       const data = await res.json();
       return data;
     },
@@ -48,7 +52,7 @@ const MyOrders = () => {
                 </td>
                 <td>{booking.product}</td>
                 <td>{booking.price}</td>
-                <td className="my-auto btn bg-green-600">Pay Now<BsFillCartCheckFill className="text-1xl"></BsFillCartCheckFill></td>
+                <td><button className=" btn btn-sm btn-outline bg-yellow-400 text-black">Pay Now<BsFillCartCheckFill className="text-2xl"></BsFillCartCheckFill></button></td>
               </tr>
             ))}
           </tbody>
