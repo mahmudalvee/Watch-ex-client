@@ -1,8 +1,8 @@
-Website Name: Watch-ex
+**Website Name: Watch-ex**
 
 link: https://watch-ex.web.app/ 
 
-Website features:
+**Website features:**
 * Dynamic data fetching from Mongodb server
 * Login-registration using Firebase
 * Homepage contains 3 categorized products along with Advertised products
@@ -11,7 +11,7 @@ Website features:
 * Seller can add products, delete products, advertise products
 * Admin can view, delete all the Sellers & buyers with their informations
 
-Framework/Library:
+**Framework/Library:**
 * React
 * Vercel
 * Mongodb
